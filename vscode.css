@@ -44,7 +44,7 @@
   --backdrop: rgba(0, 0, 0, 0.06);
 
   --input-bg: rgba(255, 255, 255, 0.92);
-  --input-border: rgba(0, 0, 0, 0.10);
+  --input-border: rgba(0, 0, 0, 0.1);
 
   --hover-bg-top: #ffffff;
   --hover-bg-bottom: #f1f2f6;
@@ -57,7 +57,7 @@
 .vscode-dark {
   --fg: rgba(255, 255, 255, 0.92);
   --fg-muted: rgba(255, 255, 255, 0.65);
-  --fg-faint: rgba(255, 255, 255, 0.30);
+  --fg-faint: rgba(255, 255, 255, 0.3);
 
   --panel-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
 
@@ -67,7 +67,7 @@
 
   --backdrop: rgba(0, 0, 0, 0.15);
 
-  --input-bg: rgba(34, 34, 34, 0.40);
+  --input-bg: rgba(34, 34, 34, 0.4);
   --input-border: rgba(255, 255, 255, 0.06);
 
   --hover-bg-top: #3c3c50;
@@ -80,10 +80,6 @@
 /* -------------------------
    1) Misc (kept from yours)
    ------------------------- */
-
-/* path color */
-.mtk3 {
-}
 
 /* Code canvas top shadow */
 .monaco-editor .scroll-decoration {
@@ -100,6 +96,13 @@
 /* Side bar */
 .part.sidebar {
   box-shadow: var(--panel-shadow) !important;
+}
+
+/* Light theme sidebar – pure color */
+.vscode-light .part.sidebar,
+.vscode-light .monaco-workbench .part.sidebar .content {
+  background-image: none !important;
+  background-color: #ffffff !important;
 }
 
 /* File Explorer Selected Item (keep your current look) */
@@ -155,7 +158,7 @@
 .composite.title h2 {
   font-weight: bold !important;
   font-size: 12px !important;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   color: var(--accent) !important;
 }
 .composite.title h2::before {
@@ -180,7 +183,7 @@
   box-shadow: var(--hover-shadow) !important;
   background-image: linear-gradient(
     var(--hover-bg-top) 0%,
-    var(--hover-bg-bottom) 100%
+    var(--hover-bg-bottom) 10%
   ) !important;
   backdrop-filter: blur(3px) !important;
   border-radius: var(--radius-md) !important;
@@ -241,7 +244,7 @@
   padding-left: 20px !important;
 }
 
-/* Fix your original syntax issue: remove stray "*/" */
+/* Fix your original syntax issue: remove stray "*/
 .monaco-list.list_id_1 .monaco-tl-indent > .indent-guide.active {
   border: none !important;
 }
@@ -253,10 +256,12 @@
    2) Command Palette (Cmd+P / Cmd+Shift+P)
    Auto dark/light via variables above
    ------------------------- */
-
 .quick-input-widget {
-  transform: translateY(-10%) !important;
+  transform: translate(-50%, -50%) !important;
   top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
   box-shadow: var(--cp-shadow) !important;
   padding: 10px 10px 18px 10px !important;
   background-image: linear-gradient(
