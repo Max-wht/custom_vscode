@@ -1,0 +1,362 @@
+/* =========================================================
+   VS Code Custom CSS (Auto Dark/Light + Variables)
+   - Theme switch: .vscode-dark / .vscode-light (automatic)
+   - All colors driven by CSS variables
+   ========================================================= */
+
+/* -------------------------
+   0) Theme variables
+   ------------------------- */
+
+:root {
+  /* Typography */
+  --ui-font-mono: "JetBrains Mono";
+
+  /* Accents (keep your original accent) */
+  --accent: #bc9abc;
+
+  /* Global shadows */
+  --shadow-strong: 0px 0px 20px rgba(0, 0, 0, 0.75);
+  --shadow-med: 0px 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0px 0px 50px rgba(0, 0, 0, 0.25);
+
+  /* Radius */
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+
+  /* Scrollbar */
+  --scrollbar-width: 1px;
+}
+
+/* Light theme tokens */
+.vscode-light {
+  --fg: #1f2328;
+  --fg-muted: rgba(0, 0, 0, 0.55);
+  --fg-faint: rgba(0, 0, 0, 0.35);
+
+  --panel-shadow: 0px 0px 50px rgba(0, 0, 0, 0.12);
+
+  --cp-bg-top: #ffffff;
+  --cp-bg-bottom: #f2f3f7;
+  --cp-shadow: 0px 8px 32px rgba(0, 0, 0, 0.18);
+
+  --backdrop: rgba(0, 0, 0, 0.06);
+
+  --input-bg: rgba(255, 255, 255, 0.92);
+  --input-border: rgba(0, 0, 0, 0.10);
+
+  --hover-bg-top: #ffffff;
+  --hover-bg-bottom: #f1f2f6;
+  --hover-shadow: 0px 8px 28px rgba(0, 0, 0, 0.18);
+
+  --selection-bg: rgba(188, 154, 188, 0.18);
+}
+
+/* Dark theme tokens */
+.vscode-dark {
+  --fg: rgba(255, 255, 255, 0.92);
+  --fg-muted: rgba(255, 255, 255, 0.65);
+  --fg-faint: rgba(255, 255, 255, 0.30);
+
+  --panel-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+
+  --cp-bg-top: #3c3c50;
+  --cp-bg-bottom: #2a2b38;
+  --cp-shadow: 0px 8px 32px rgba(0, 0, 0, 0.35);
+
+  --backdrop: rgba(0, 0, 0, 0.15);
+
+  --input-bg: rgba(34, 34, 34, 0.40);
+  --input-border: rgba(255, 255, 255, 0.06);
+
+  --hover-bg-top: #3c3c50;
+  --hover-bg-bottom: #2a2b38;
+  --hover-shadow: 0px 8px 32px rgba(0, 0, 0, 0.45);
+
+  --selection-bg: rgba(188, 154, 188, 0.22);
+}
+
+/* -------------------------
+   1) Misc (kept from yours)
+   ------------------------- */
+
+/* path color */
+.mtk3 {
+}
+
+/* Code canvas top shadow */
+.monaco-editor .scroll-decoration {
+  box-shadow: var(--shadow-strong) !important;
+  top: -6px !important;
+}
+
+/* Match Text */
+.currentFindMatchInline {
+  /* If you want this to adapt to theme, change to: background: var(--fg) */
+  background: #000 !important;
+}
+
+/* Side bar */
+.part.sidebar {
+  box-shadow: var(--panel-shadow) !important;
+}
+
+/* File Explorer Selected Item (keep your current look) */
+.monaco-list.list_id_1 .monaco-list-row.selected {
+  background-color: #4f5971 !important;
+  opacity: 1 !important;
+  border-top: 1px #727b90 solid;
+  border-bottom: 1px #727b90 solid;
+}
+
+/* Hide the ">" chevron icon */
+.codicon-tree-item-expanded:before {
+  display: none !important;
+}
+
+/* List item label name */
+.monaco-list.list_id_1 .monaco-list-row.selected .label-name {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* File explorer action buttons */
+.monaco-workbench .part.sidebar .title-actions .actions-container {
+  display: none;
+}
+
+/* File Explorer Item Label */
+.monaco-tree .monaco-tree-row .label-name,
+.monaco-list .monaco-list-row .monaco-icon-label .label-name {
+  font-family: var(--ui-font-mono) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.explorer-item-edited {
+  font-size: 14px !important;
+  font-family: var(--ui-font-mono) !important;
+}
+
+/* Sidebar top shadow */
+.monaco-scrollable-element > .shadow.top {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75) !important;
+  top: -3px !important;
+}
+
+/* Sidebar title */
+.composite.title {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-items: center !important;
+}
+.composite.title h2 {
+  font-weight: bold !important;
+  font-size: 12px !important;
+  /* text-transform: uppercase; */
+  color: var(--accent) !important;
+}
+.composite.title h2::before {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 1.1rem;
+  content: "🌏";
+}
+
+/* Scroll Bar */
+.slider {
+  position: absolute !important;
+  right: 1px !important;
+  width: var(--scrollbar-width) !important;
+  background: var(--accent) !important;
+  left: auto !important;
+}
+
+/* Tooltip box style (auto dark/light) */
+.monaco-editor-hover,
+.monaco-hover {
+  box-shadow: var(--hover-shadow) !important;
+  background-image: linear-gradient(
+    var(--hover-bg-top) 0%,
+    var(--hover-bg-bottom) 100%
+  ) !important;
+  backdrop-filter: blur(3px) !important;
+  border-radius: var(--radius-md) !important;
+  border: none !important;
+  outline: 0px !important;
+  color: var(--fg) !important;
+}
+.monaco-resizable-hover {
+  border: none !important;
+}
+
+/* Project title's style at the top. */
+.monaco-workbench
+  .part.titlebar
+  > .titlebar-container
+  > .titlebar-center
+  > .window-title
+  > .command-center
+  .action-item.command-center-center {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Project Title */
+.titlebar-left {
+  justify-content: flex-end !important;
+  flex-grow: 0 !important;
+  width: 75px !important;
+}
+
+/* Search Label */
+.search-label {
+  font-size: 14px !important;
+  font-family: var(--ui-font-mono) !important;
+  display: block;
+}
+
+/* Search icon */
+.search-icon {
+  display: none !important;
+}
+.codicon-search::before {
+  display: none !important;
+}
+.codicon-arrow-right,
+.codicon-arrow-left {
+  display: none !important;
+}
+
+.titlebar-right > * {
+  display: none !important;
+}
+.command-center-center {
+  width: auto !important;
+}
+
+.explorer-folders-view .monaco-list-row {
+  padding-left: 20px !important;
+}
+
+/* Fix your original syntax issue: remove stray "*/" */
+.monaco-list.list_id_1 .monaco-tl-indent > .indent-guide.active {
+  border: none !important;
+}
+.monaco-list.list_id_1 .monaco-tl-indent > .indent-guide.active:hover {
+  border: none !important;
+}
+
+/* -------------------------
+   2) Command Palette (Cmd+P / Cmd+Shift+P)
+   Auto dark/light via variables above
+   ------------------------- */
+
+.quick-input-widget {
+  transform: translateY(-10%) !important;
+  top: 50% !important;
+  box-shadow: var(--cp-shadow) !important;
+  padding: 10px 10px 18px 10px !important;
+  background-image: linear-gradient(
+    var(--cp-bg-top) 0%,
+    var(--cp-bg-bottom) 100%
+  ) !important;
+  border-radius: var(--radius-lg) !important;
+  color: var(--fg) !important;
+}
+
+.quick-input-list,
+.quick-input-list .list_id_6 {
+  min-height: 200px !important;
+}
+
+/* Backdrop */
+.quick-input-widget::backdrop {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--backdrop) !important;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(8px);
+}
+
+/* Remove background for lists */
+.monaco-list-rows {
+  background: transparent !important;
+}
+
+/* Text input */
+.quick-input-filter .monaco-inputbox {
+  border-radius: var(--radius-sm) !important;
+  padding: 6px !important;
+  border: none !important;
+  background-color: var(--input-bg) !important;
+  box-shadow: inset 0 0 0 1px var(--input-border) !important;
+  font-family: var(--ui-font-mono) !important;
+  font-size: 14px !important;
+  margin-bottom: 16px !important;
+  color: var(--fg) !important;
+}
+
+/* Ensure inner input inherits */
+.quick-input-filter .monaco-inputbox input {
+  color: var(--fg) !important;
+}
+
+/* Your blur layer (kept) */
+#command-blur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--backdrop) !important;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(8px);
+}
+
+/* Actions after command palette text input */
+.quick-input-inline-action-bar .actions-container .action-item {
+  margin-bottom: 16px !important;
+}
+.quick-input-header {
+  align-items: center;
+}
+
+/* Placeholder */
+.monaco-inputbox input::placeholder {
+  color: var(--fg-faint) !important;
+}
+
+/* List text */
+.quick-input-list,
+.quick-input-list .monaco-list-row {
+  color: var(--fg) !important;
+}
+
+/* Description / keybinding */
+.quick-input-list .monaco-list-row .label-description,
+.quick-input-list .monaco-list-row .keybinding {
+  color: var(--fg-muted) !important;
+}
+
+/* Selected / focused row */
+.quick-input-list .monaco-list-row.focused,
+.quick-input-list .monaco-list-row.selected {
+  background-color: var(--selection-bg) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Highlight in selected row */
+.quick-input-list .monaco-list-row.focused .highlight,
+.quick-input-list .monaco-list-row.selected .highlight {
+  color: var(--fg) !important;
+}
+
+/* Hide watermark shortcuts */
+.editor-group-watermark .shortcuts {
+  display: none !important;
+}
