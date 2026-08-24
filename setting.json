@@ -1,0 +1,381 @@
+{
+        "extensions.ignoreRecommendations": true,
+        "editor.lineNumbers": "off",
+        "vim.leader": "<Space>",
+        "vim.insertModeKeyBindings": [
+                {
+                        "before": ["j", "k"],
+                        "after": ["<Esc>"],
+                },
+        ],
+        "vim.normalModeKeyBindings": [
+                {
+                        "before": ["<S-Tab>"],
+                        "after": ["<<"],
+                },
+        ],
+
+        "vim.normalModeKeyBindingsNonRecursive": [
+                {
+                        "before": ["<leader>", "-"],
+                        "commands": [
+                                {
+                                        "command": "workbench.action.navigateBack",
+                                },
+                        ],
+                },
+                {
+                        "before": ["]"],
+                        "after": ["}"],
+                },
+                {
+                        "before": ["["],
+                        "after": ["{"],
+                },
+
+                //change buffer 跳转页面
+                { "before": ["leader", "t", "p"], "commands": [":bprevious"] },
+                { "before": ["leader", "t", "n"], "commands": [":bnext"] },
+                { "before": ["leader", "x", "x"], "commands": [":bd"] },
+                {
+                        "before": ["leader", "x", "a"],
+                        "commands": ["workbench.action.closeOtherEditors"],
+                },
+                {
+                        "before": ["leader", "t", "o"],
+                        "commands": ["workbench.action.files.newUntitledFile"],
+                },
+
+                //split 分割页面
+                { "before": ["leader", "v"], "commands": [":vsplit"] },
+                //pans
+                {
+                        "before": ["leader", "h"],
+                        "commands": ["workbench.action.focusLeftGroup"],
+                },
+                {
+                        "before": ["leader", "j"],
+                        "commands": ["workbench.action.focusBelowGroup"],
+                },
+                {
+                        "before": ["leader", "k"],
+                        "commands": ["workbench.action.focusAboveGroup"],
+                },
+                {
+                        "before": ["leader", "l"],
+                        "commands": ["workbench.action.focusRightGroup"],
+                },
+
+                //navigate file tree 文件树
+                {
+                        "before": ["<leader>", "e"],
+                        "commands": ["workbench.view.explorer"],
+                },
+
+                {
+                        "before": ["<leader>", "w"],
+                        "commands": ["workbench.action.files.save"],
+                },
+                {
+                        "before": ["<leader>", "f"],
+                        "commands": ["workbench.action.quickOpen"],
+                },
+                {
+                        "before": ["<leader>", "p"],
+                        "commands": ["editor.action.formatDocument"],
+                },
+        ],
+
+        "vim.visualModeKeyBindings": [
+                // Stay in visual mode while indenting
+                { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+                { "before": [">"], "commands": ["editor.action.indentLines"] },
+                // Move selected lines while staying in visual mode
+                {
+                        "before": ["J"],
+                        "commands": ["editor.action.moveLinesDownAction"],
+                },
+                {
+                        "before": ["K"],
+                        "commands": ["editor.action.moveLinesUpAction"],
+                },
+                // toggle comment selection
+                {
+                        "before": ["<leader>", "c"],
+                        "commands": ["editor.action.commentLine"],
+                },
+                {
+                        "before": ["<S-Tab>"],
+                        "after": ["<"],
+                },
+        ],
+        "vim.visualModeKeyBindingsNonRecursive": [
+                {
+                        "before": ["<tab>"],
+                        "after": [">"],
+                },
+        ],
+        "vim.handleKeys": {
+                "<Enter>": false,
+        },
+
+        "vim.timeout": 1000,
+        "vim.easymotion": true,
+        "vim.autoSwitchInputMethod.enable": true,
+        "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+        "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
+        "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
+        "symbols.hidesExplorerArrows": false,
+        "editor.fontLigatures": true,
+        "window.titleBarStyle": "native",
+        "editor.fontFamily": "Comic Mono, 'KaiTi SC'",
+        "workbench.settings.applyToAllProfiles": ["editor.fontFamily"],
+        "editor.cursorSurroundingLines": 8,
+        "editor.fastScrollSensitivity": 0,
+        "editor.mouseWheelScrollSensitivity": 0,
+        "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
+        "editor.scrollbar.vertical": "visible",
+        "editor.scrollbar.horizontalScrollbarSize": 0,
+        "editor.scrollbar.verticalScrollbarSize": 0,
+        "editor.scrollBeyondLastColumn": 0,
+        "workbench.editor.titleScrollbarVisibility": "hidden",
+        "[jsonc]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+        },
+        "workbench.statusBar.visible": false,
+        "explorer.confirmDelete": false,
+        "workbench.editorAssociations": {
+                "*.docx": "default",
+        },
+        "prettier.useEditorConfig": false,
+        "prettier.tabWidth": 8,
+        "prettier.useTabs": false,
+        "[json]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+        },
+        "[html]": {
+                "editor.defaultFormatter": "vscode.html-language-features",
+        },
+
+        "better-comments.tags": [
+                {
+                        "tag": "!",
+                        "color": "#B22222",
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "@todo",
+                        "color": "#B22222",
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "?",
+                        "color": "#CD853F", // in light theme
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": ".",
+                        "color": "#CD853F", // in light theme
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "@learn",
+                        "color": "#fff0f5", // in dark theme
+                        // "color": "#2F4F4F", // in light theme
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "@note",
+                        // "color": "#fff0f5", //in dark theme
+                        "color": "#4B0082", // in light theme
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "@audit",
+                        "color": "#A52A2A",
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "@follow",
+                        "color": "#FF8C00",
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+                {
+                        "tag": "@report",
+                        "color": "#FF8C00",
+                        "strikethrough": false,
+                        "underline": false,
+                        "backgroundColor": "transparent",
+                        "bold": false,
+                        "italic": false,
+                },
+        ],
+        "eyecons.folderColor": "purple",
+        "editor.stickyScroll.enabled": false,
+        "[solidity]": {
+                "editor.defaultFormatter": "NomicFoundation.hardhat-solidity",
+        },
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "workbench.editor.showTabs": "single",
+        "workbench.activityBar.location": "hidden",
+        "editor.cursorSmoothCaretAnimation": "on",
+
+        //@note css and js load
+        "vscode_custom_css.imports": [
+                "file:///Users/max/custom_vscode/custom_vscode.css",
+                "file:///Users/max/custom_vscode/custom_vscode.js",
+        ],
+        "editor.tokenColorCustomizations": {
+            "[Vira*]": {
+                "textMateRules": [
+                    {
+                        "scope": [
+                            "comment",
+                            "comment punctuation.definition.comment"
+                        ],
+                        "settings": {
+                            "foreground": "#808080",
+                            "fontStyle": "italic"
+                        }
+                    }
+                ]
+            }
+        },
+        "workbench.colorCustomizations": {
+            "[Vira*]": {
+                "statusBar.debuggingBackground": "#80CBC433",
+                "statusBar.debuggingForeground": "#80CBC4",
+                "toolbar.activeBackground": "#80CBC426",
+                "button.background": "#80CBC4",
+                "button.hoverBackground": "#80CBC4cc",
+                "extensionButton.separator": "#80CBC433",
+                "extensionButton.background": "#80CBC414",
+                "extensionButton.foreground": "#80CBC4",
+                "extensionButton.hoverBackground": "#80CBC433",
+                "extensionButton.prominentForeground": "#80CBC4",
+                "extensionButton.prominentBackground": "#80CBC414",
+                "extensionButton.prominentHoverBackground": "#80CBC433",
+                "activityBarBadge.background": "#80CBC4",
+                "activityBar.activeBorder": "#80CBC4",
+                "activityBarTop.activeBorder": "#80CBC4",
+                "list.inactiveSelectionIconForeground": "#80CBC4",
+                "list.activeSelectionForeground": "#80CBC4",
+                "list.inactiveSelectionForeground": "#80CBC4",
+                "list.highlightForeground": "#80CBC4",
+                "sash.hoverBorder": "#80CBC480",
+                "list.activeSelectionIconForeground": "#80CBC4",
+                "scrollbarSlider.activeBackground": "#80CBC480",
+                "editorSuggestWidget.highlightForeground": "#80CBC4",
+                "textLink.foreground": "#80CBC4",
+                "progressBar.background": "#80CBC4",
+                "pickerGroup.foreground": "#80CBC4",
+                "tab.activeBorder": "#80CBC4",
+                "tab.activeBorderTop": "#80CBC400",
+                "tab.unfocusedActiveBorder": "#80CBC4",
+                "tab.unfocusedActiveBorderTop": "#80CBC400",
+                "tab.activeModifiedBorder": "#80CBC400",
+                "notificationLink.foreground": "#80CBC4",
+                "editorWidget.resizeBorder": "#80CBC4",
+                "editorWidget.border": "#80CBC4",
+                "settings.modifiedItemIndicator": "#80CBC4",
+                "panelTitle.activeBorder": "#80CBC4",
+                "breadcrumb.activeSelectionForeground": "#80CBC4",
+                "menu.selectionForeground": "#80CBC4",
+                "menubar.selectionForeground": "#80CBC4",
+                "editor.findMatchBorder": "#80CBC4",
+                "selection.background": "#80CBC440",
+                "statusBarItem.remoteBackground": "#80CBC414",
+                "statusBarItem.remoteHoverBackground": "#80CBC4",
+                "statusBarItem.remoteForeground": "#80CBC4",
+                "notebook.inactiveFocusedCellBorder": "#80CBC480",
+                "chat.slashCommandForeground": "#80CBC4",
+                "chat.avatarForeground": "#80CBC4",
+                "activityBarBadge.foreground": "#000000",
+                "button.foreground": "#000000",
+                "statusBarItem.remoteHoverForeground": "#000000",
+                "extensionButton.border": "#80CBC414"
+            }
+        },
+        "workbench.productIconTheme": "viraUIIcons",
+        "workbench.iconTheme": "eyecons",
+        "viraTheme.syncThemesAndIcons": false,
+        "workbench.secondarySideBar.defaultVisibility": "hidden",
+        "window.customTitleBarVisibility": "never",
+        "editor.largeFileOptimizations": false,
+        "[css]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+        },
+        "editor.occurrencesHighlight": "singleFile",
+        "editor.selectionHighlight": true,
+        "solidity-language-server.trace.server.verbosity": "message",
+        "chatgpt.localeOverride": "en-US",
+        "editor.wordWrap": "on",
+        "window.confirmSaveUntitledWorkspace": false,
+
+        "solidity.formatter": "forge",
+        "solidity.monoRepoSupport": true,
+        "solidity.packageDefaultDependenciesDirectory": ["node_modules", "lib"],
+        "solidity.packageDefaultDependenciesContractsDirectory": [
+                "src",
+                "contracts",
+                "",
+        ],
+        "solidity.remappingsUnix": [
+                "@chainlink/contracts/=node_modules/@chainlink/contracts/",
+                "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+                "@openzeppelin/contracts@4.8.3/=node_modules/.pnpm/@openzeppelin+contracts@4.8.3/node_modules/@openzeppelin/contracts/",
+                "@openzeppelin/contracts@4.9.6/=node_modules/.pnpm/@openzeppelin+contracts@4.9.6/node_modules/@openzeppelin/contracts/",
+                "@openzeppelin/contracts@5.0.2/=node_modules/.pnpm/@openzeppelin+contracts@5.0.2/node_modules/@openzeppelin/contracts/",
+                "forge-std/=node_modules/forge-std/src/",
+                "@cowprotocol/=src/vendor/@cowprotocol/contracts/src/contracts/",
+        ],
+
+        "claudeCode.preferredLocation": "panel",
+        "explorer.confirmDragAndDrop": false,
+        "workbench.editor.enablePreview": false,
+        "workbench.startupEditor": "none",
+        "git.openRepositoryInParentFolders": "never",
+        "chat.mcp.gallery.enabled": true,
+        "workbench.colorTheme": "Vira Sand",
+        "editor.detectIndentation": false,
+        "terminal.integrated.fontLigatures.enabled": true,
+        "terminal.integrated.cursorStyle": "line",
+        "workbench.sideBar.location": "right",
+        "editor.minimap.showSlider": "always",
+        "editor.minimap.size": "fill",
+        "[typescript]": {
+            "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+}
