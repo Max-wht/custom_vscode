@@ -27,13 +27,27 @@
 
   /* Scrollbar */
   --scrollbar-width: 1px;
+  --scrollbar-color: var(--accent);
+  --editor-scrollbar-width: 2px;
+  --editor-scrollbar-color: var(--accent);
+
+  /* Editor gutter */
+  --editor-gutter-width: 6px;
+
+  /* Explorer text */
+  --explorer-fg: var(--fg);
+  --explorer-fg-muted: var(--fg-muted);
 }
 
 /* Light theme tokens */
-.vscode-light {
+.vscode-light,
+.vs {
   --fg: #1f2328;
   --fg-muted: rgba(0, 0, 0, 0.55);
   --fg-faint: rgba(0, 0, 0, 0.35);
+  --cursor-color: #000000;
+  --cursor-text-color: #ffffff;
+  --vscode-editorCursor-foreground: #000000;
 
   --panel-shadow: 0px 0px 50px rgba(0, 0, 0, 0.12);
 
@@ -51,13 +65,23 @@
   --hover-shadow: 0px 8px 28px rgba(0, 0, 0, 0.18);
 
   --selection-bg: rgba(188, 154, 188, 0.18);
+  --explorer-fg: var(--fg);
+  --explorer-fg-muted: var(--fg-muted);
+  --scrollbar-width: 6px;
+  --scrollbar-color: rgba(0, 0, 0, 0.72);
+  --editor-scrollbar-width: 3px;
+  --editor-scrollbar-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Dark theme tokens */
-.vscode-dark {
+.vscode-dark,
+.vs-dark {
   --fg: rgba(255, 255, 255, 0.92);
   --fg-muted: rgba(255, 255, 255, 0.65);
   --fg-faint: rgba(255, 255, 255, 0.3);
+  --cursor-color: #c8c8c8;
+  --cursor-text-color: #000000;
+  --vscode-editorCursor-foreground: #c8c8c8;
 
   --panel-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
 
@@ -75,6 +99,12 @@
   --hover-shadow: 0px 8px 32px rgba(0, 0, 0, 0.45);
 
   --selection-bg: rgba(188, 154, 188, 0.22);
+  --explorer-fg: rgba(255, 255, 255, 0.84);
+  --explorer-fg-muted: rgba(255, 255, 255, 0.58);
+  --scrollbar-width: 1px;
+  --scrollbar-color: var(--accent);
+  --editor-scrollbar-width: 1px;
+  --editor-scrollbar-color: var(--accent);
 }
 
 /* -------------------------
@@ -87,10 +117,96 @@
   top: -6px !important;
 }
 
+/* Narrow the editor gutter / line number column */
+.monaco-editor .margin,
+.monaco-editor .margin-view-overlays,
+.monaco-editor .glyph-margin {
+  width: var(--editor-gutter-width) !important;
+}
+
+.monaco-editor .line-numbers {
+  width: var(--editor-gutter-width) !important;
+  min-width: var(--editor-gutter-width) !important;
+  text-align: right !important;
+}
+
 /* Match Text */
 .currentFindMatchInline {
   /* If you want this to adapt to theme, change to: background: var(--fg) */
   background: #000 !important;
+}
+
+/* Same-word highlight in editor
+   dark theme: border only, transparent fill
+   light theme: fill only, no border */
+.vscode-dark .monaco-editor .wordHighlight,
+.vscode-dark .monaco-editor .wordHighlightStrong,
+.vscode-dark .monaco-editor .wordHighlightText,
+.vscode-dark .monaco-editor .selectionHighlight,
+.vs-dark .monaco-editor .wordHighlight,
+.vs-dark .monaco-editor .wordHighlightStrong,
+.vs-dark .monaco-editor .wordHighlightText,
+.vs-dark .monaco-editor .selectionHighlight {
+  background-color: transparent !important;
+  border: 1px solid #4da3ff !important;
+  box-sizing: border-box !important;
+}
+
+.vscode-light .monaco-editor .wordHighlight,
+.vscode-light .monaco-editor .wordHighlightStrong,
+.vscode-light .monaco-editor .wordHighlightText,
+.vscode-light .monaco-editor .selectionHighlight,
+.vs .monaco-editor .wordHighlight,
+.vs .monaco-editor .wordHighlightStrong,
+.vs .monaco-editor .wordHighlightText,
+.vs .monaco-editor .selectionHighlight {
+  background-color: rgba(77, 163, 255, 0.2) !important;
+  border: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Vim/Editor cursor contrast by theme:
+   light theme -> black cursor, dark theme -> soft gray cursor */
+.vscode-light .monaco-editor .cursors-layer > .cursor,
+.vs .monaco-editor .cursors-layer > .cursor,
+.vscode-dark .monaco-editor .cursors-layer > .cursor,
+.vs-dark .monaco-editor .cursors-layer > .cursor {
+  border-left-color: var(--cursor-color) !important;
+  border-right-color: var(--cursor-color) !important;
+  border-top-color: var(--cursor-color) !important;
+  border-bottom-color: var(--cursor-color) !important;
+  background-color: var(--cursor-color) !important;
+  color: var(--cursor-text-color) !important;
+  caret-color: var(--cursor-color) !important;
+}
+
+/* Block-outline cursor uses transparent background in VS Code core CSS */
+.vscode-light .monaco-editor .cursors-layer.cursor-block-outline-style > .cursor,
+.vs .monaco-editor .cursors-layer.cursor-block-outline-style > .cursor,
+.vscode-dark .monaco-editor .cursors-layer.cursor-block-outline-style > .cursor,
+.vs-dark .monaco-editor .cursors-layer.cursor-block-outline-style > .cursor {
+  border-color: var(--cursor-color) !important;
+  color: var(--cursor-text-color) !important;
+}
+
+/* Underline cursor variants */
+.vscode-light .monaco-editor .cursors-layer.cursor-underline-style > .cursor,
+.vs .monaco-editor .cursors-layer.cursor-underline-style > .cursor,
+.vscode-dark .monaco-editor .cursors-layer.cursor-underline-style > .cursor,
+.vs-dark .monaco-editor .cursors-layer.cursor-underline-style > .cursor,
+.vscode-light .monaco-editor .cursors-layer.cursor-underline-thin-style > .cursor,
+.vs .monaco-editor .cursors-layer.cursor-underline-thin-style > .cursor,
+.vscode-dark .monaco-editor .cursors-layer.cursor-underline-thin-style > .cursor,
+.vs-dark .monaco-editor .cursors-layer.cursor-underline-thin-style > .cursor {
+  border-bottom-color: var(--cursor-color) !important;
+}
+
+/* Ensure the theme token itself is overridden */
+.vscode-light .monaco-workbench,
+.vs .monaco-workbench,
+.vscode-dark .monaco-workbench,
+.vs-dark .monaco-workbench {
+  --vscode-editorCursor-foreground: var(--cursor-color) !important;
 }
 
 /* Side bar */
@@ -135,11 +251,15 @@
   font-family: var(--ui-font-mono) !important;
   font-size: 14px !important;
   font-weight: 400 !important;
+  color: var(--explorer-fg) !important;
+  opacity: 1 !important;
 }
 
 .explorer-item-edited {
   font-size: 14px !important;
   font-family: var(--ui-font-mono) !important;
+  color: var(--explorer-fg-muted) !important;
+  opacity: 1 !important;
 }
 
 /* Sidebar top shadow */
@@ -168,12 +288,24 @@
   content: "🌏";
 }
 
-/* Scroll Bar */
-.slider {
+/* Sidebar vertical scrollbar */
+.part.sidebar .scrollbar.vertical > .slider {
   position: absolute !important;
-  right: 1px !important;
+  right: 0 !important;
   width: var(--scrollbar-width) !important;
-  background: var(--accent) !important;
+  background: var(--scrollbar-color) !important;
+  border-radius: 999px !important;
+  left: auto !important;
+}
+
+/* Editor vertical scrollbar */
+.part.editor .scrollbar.vertical > .slider,
+.editor-instance .scrollbar.vertical > .slider {
+  position: absolute !important;
+  right: 0 !important;
+  width: var(--editor-scrollbar-width) !important;
+  background: var(--editor-scrollbar-color) !important;
+  border-radius: 999px !important;
   left: auto !important;
 }
 
@@ -250,6 +382,12 @@
 }
 .monaco-list.list_id_1 .monaco-tl-indent > .indent-guide.active:hover {
   border: none !important;
+}
+
+/* Empty editor watermark: hide shortcut hints under the VS Code logo */
+.editor-group-watermark .shortcuts,
+.editor-group-watermark .watermark-box {
+  display: none !important;
 }
 
 /* -------------------------
@@ -355,13 +493,8 @@
   border-radius: var(--radius-sm) !important;
 }
 
-/* Highlight in selected row */
-.quick-input-list .monaco-list-row.focused .highlight,
-.quick-input-list .monaco-list-row.selected .highlight {
-  color: var(--fg) !important;
-}
-
-/* Hide watermark shortcuts */
-.editor-group-watermark .shortcuts {
-  display: none !important;
-}
+/* /* Highlight in selected row */
+/* .quick-input-list .monaco-list-row.focused .highlight, */
+/* .quick-input-list .monaco-list-row.selected .highlight { */
+/*   color: var(--fg) !important; */
+/* } */
