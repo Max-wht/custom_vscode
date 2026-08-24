@@ -1,0 +1,79 @@
+// Place your key bindings in this file to override the defaults
+[
+        {
+                "key": "cmd+i",
+                "command": "composerMode.agent",
+        },
+        {
+                "key": "pageup pageup",
+                "command": "editor.action.enableCppGlobally",
+        },
+        {
+                "key": "pagedown pagedown",
+                "command": "editor.cpp.disableenabled",
+        },
+        {
+                "key": "cmd+u",
+                "command": "filebunny.openFile",
+        },
+
+        //FILE TREE
+        {
+                "key": "space",
+                "command": "-list.select",
+        },
+        {
+                "key": "j",
+                "command": "list.focusDown",
+                "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+        },
+        {
+                "key": "k",
+                "command": "list.focusUp",
+                "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+        },
+        {
+                "key": "h",
+                "command": "list.collapse",
+                "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+        },
+        {
+                "key": "l",
+                "command": "list.expand",
+                "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+        },
+        {
+                "key": "enter",
+                "command": "list.select",
+                "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+        },
+
+        //@note Codex
+        // Codex: add text to thread
+        {
+                "key": "cmd+l",
+                "command": "chatgpt.addToThread",
+                "when": "editorTextFocus && editorHasSelection",
+        },
+        // Codex: go the the list of threads
+        {
+                "key": "cmd+shift+;",
+                "command": "chatgpt.newChat",
+        },
+        {
+                "key": "shift+enter",
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                        "text": "\u001b\r",
+                },
+                "when": "terminalFocus",
+        },
+        {
+                "key": "alt+l",
+                "command": "workbench.action.terminal.focusNext",
+        },
+        {
+                "key": "alt+h",
+                "command": "workbench.action.terminal.focusPrevious",
+        },
+]
