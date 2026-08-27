@@ -1,0 +1,13 @@
+
+font-family = "Comic Mono"
+font-size = 19
+
+adjust-cell-height = 12%
+adjust-cell-width = 2%
+
+mouse-hide-while-typing = true
+theme = catppuccin-mocha
+config-file = ?./dynamic-theme
+
+background-blur-radius = 20
+macos-option-as-alt = true
