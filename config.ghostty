@@ -1,13 +1,28 @@
 
 font-family = "Comic Mono"
-font-size = 19
+font-size = 15
 
-adjust-cell-height = 12%
-adjust-cell-width = 2%
+adjust-cell-height = 40%
+adjust-cell-width = 0%
 
 mouse-hide-while-typing = true
-theme = catppuccin-mocha
 config-file = ?./dynamic-theme
+
+# Match window padding to the adjacent terminal cells, including light Neovim.
+window-padding-color = extend-always
+
+# Keep the cursor visible when Herdr or Neovim paints a light background.
+cursor-color = #404040
+cursor-text = #FFFFFF
+cursor-style = bar
 
 background-blur-radius = 20
 macos-option-as-alt = true
+
+# Open new windows fullscreen without the macOS title/tab bar.
+fullscreen = true
+macos-titlebar-style = hidden
+
+# Press Cmd+I, release, then H/L to cycle through Ghostty windows.
+keybind = super+i>h=goto_window:previous
+keybind = super+i>l=goto_window:next
